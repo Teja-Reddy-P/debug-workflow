@@ -5,7 +5,7 @@ on:
     push: 
 env:
     user_1: "sai"
-    user_2: "tej"
+    user_2: "tej1"
 
 jobs:
     debug_job:
