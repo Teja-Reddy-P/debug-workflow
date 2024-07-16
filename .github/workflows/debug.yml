@@ -1,0 +1,28 @@
+name: How debugging works in github actions
+
+on: 
+    workflow_dispatch: 
+    push: 
+env:
+    user_1: "sai"
+    user_2: "tej"
+
+jobs:
+    debug_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: step-1 - checkout-repo
+              uses: actions/checkout@v4
+            - name: step-2 set user_1 as USERNAME
+              run: echo USERNAME=$user_1 >> $GITHUB_ENV
+            - name: step-3 printing the USERNAME
+              run: |
+               echo "Printing the USERNAME env variable from the previous step"
+               echo "username ========= $USERNAME"
+               exit 1
+            - name: Step-4 Printing user_2
+              run: |
+               echo $user_2
+
+
+
